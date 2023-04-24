@@ -2,6 +2,9 @@ package cm4bookshop;
 
 public class BookStore {
 private int id;
+private String name;
+private String address;
+
 public int getId() {
 	return id;
 }
@@ -20,7 +23,5 @@ public String getAddress() {
 public void setAddress(String address) {
 	this.address = address;
 }
-private String name;
-private String address;
 
 }
