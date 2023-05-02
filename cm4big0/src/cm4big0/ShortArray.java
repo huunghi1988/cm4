@@ -9,7 +9,7 @@ public class ShortArray {
 		// O(n) time
 		int[] array = { 1, 0, 0, 0, 0, 1, 2, 2, 1 };
 		int[] shortArray = new int[array.length];
-		Arrays.fill(shortArray, 0);
+		//Arrays.fill(shortArray, 0);
 		int countOne = 0;
 		int countTwo = 0;
 		for (int i = 0; i < array.length; i++) {
@@ -24,10 +24,8 @@ public class ShortArray {
 
 		Arrays.fill(shortArray, array.length - countTwo, array.length, 2);
 		Arrays.fill(shortArray, array.length - countTwo - countOne, array.length - countTwo, 1);
-		System.out.print("Sorted array : ");
-		for (int x = 0; x < shortArray.length; x++)
-			System.out.print(shortArray[x] + " ");
-		System.out.println();
-		System.out.println("O(2n)=>O(n)");
+		
+		System.out.println("Sorted array : "+Arrays.toString(shortArray));
+		System.out.println("O(3n)=>O(n)");
 	}
 }

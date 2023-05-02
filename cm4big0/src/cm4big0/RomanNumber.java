@@ -4,6 +4,7 @@ public class RomanNumber {
 	public static void main(String[] args) {
 		String romanNumber = "MCMXCIV";
 		System.out.println("Roman number in decimal is : " + romanToInt(romanNumber));
+		System.out.println("O(n)");
 
 	}
 
