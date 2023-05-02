@@ -3,7 +3,7 @@ package cm4big0;
 public class LongestPrefix {
 	public static void main(String[] args) {
 		// String[] strs = { "flower", "flow", "floight", "flo" };
-		String[] strs = { "flower", "flo", "fl", "flower" };
+		String[] strs = { "flll","fl","fa" };
 
 		longestCommonPrefix(strs);
 
@@ -39,7 +39,7 @@ public class LongestPrefix {
 
 			}
 			System.out.println("longest prefix is : " + strs[0].substring(0, index));
-			// 1 loop => 0(n)
+			// 2 loop => O(2n)=>O(n)
 			System.out.println("BigO is O(n)");
 		}
 	}
