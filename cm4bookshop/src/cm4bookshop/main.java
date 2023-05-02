@@ -137,7 +137,7 @@ public class main {
 		borrowRec3.setCustomer(cus2);
 		borrowRec3.setBorrowDate("12/11/2022");
 		borrowRec3.setReturnDate("12/12/2022");
-		
+
 		BorrowRecord borrowRec4 = new BorrowRecord();
 		borrowRec4.setId(3);
 		borrowRec4.setBook(book1_Java);
@@ -146,70 +146,61 @@ public class main {
 		borrowRec4.setBorrowDate("12/11/2024");
 		borrowRec4.setReturnDate("12/12/2025");
 
-		BorrowRecord[] borrowRecords = { borrowRec1, borrowRec2, borrowRec3,borrowRec4 };
+		BorrowRecord[] borrowRecords = { borrowRec1, borrowRec2, borrowRec3, borrowRec4 };
 
-		// show borrow list by store and book name + return status
+		// show borrow list by all store and book name + return status
 		findBorrowList(borrowRecords);
+		// search a book by store and book name +return status
 		findBorrowAndReturn(borrowRecords);
 
+	}
+
+	public static void findBorrowList(BorrowRecord[] borrowRecords) {
+		for (BorrowRecord borrowRecord : borrowRecords) {
+
+			System.out.println("Book name is : " + borrowRecord.getBook().getName());
+			System.out.println("ISBN is : " + borrowRecord.getBook().getISBN());
+			System.out.println("Book store is : " + borrowRecord.getBookStore().getName());
+			System.out.println("borrow date is : " + borrowRecord.getBorrowDate());
+			if (borrowRecord.getReturnDate() == null) {
+				System.out.println("Book is not return");
+			} else
+				System.out.println("Return date is " + borrowRecord.getReturnDate());
+			System.out.println("---------------------------------------");
+		}
 
 	}
 
-	public static void findBorrowList(BorrowRecord[] borrowRecords)
-	{
-		for (BorrowRecord borrowRecord:borrowRecords) {
-			
-				System.out.println("Book name is : "+borrowRecord.getBook().getName());
-				System.out.println("ISBN is : "+borrowRecord.getBook().getISBN());
-				System.out.println("Book store is : "+borrowRecord.getBookStore().getName());
-				System.out.println("borrow date is : "+borrowRecord.getBorrowDate());
-				if(borrowRecord.getReturnDate()==null) {
-					System.out.println("Book is not return");
-				}
-				else
-				System.out.println("Return date is "+borrowRecord.getReturnDate());
-				System.out.println("---------------------------------------");
-				}
-			
-			
-			
-	}
-	
 	public static void findBorrowAndReturn(BorrowRecord[] borrowRecords) {
-		
+
 		String storeName;
 		String bookName;
 
 		System.out.println("Find borrow list by store and book name");
-		 Scanner sc = new Scanner(System.in);
-		 System.out.println("Please input the store Name"); storeName = sc.nextLine();
-		  
-		  System.out.println("Please input the book Name"); bookName = sc.nextLine();
-		  System.out.println();
-		 
-		for (BorrowRecord borrowRecord:borrowRecords) {
-			if(borrowRecord.getBook().getName().equals(bookName)&&borrowRecord.getBookStore().getName().equals(storeName))
-				{
-				System.out.println("Book name is : "+borrowRecord.getBook().getName());
-				System.out.println("ISBN is : "+borrowRecord.getBook().getISBN());
-				System.out.println("Book store is : "+borrowRecord.getBookStore().getName());
-				System.out.println("borrow date is : "+borrowRecord.getBorrowDate());
-				if(borrowRecord.getReturnDate()==null) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please input the store Name");
+		storeName = sc.nextLine();
+
+		System.out.println("Please input the book Name");
+		bookName = sc.nextLine();
+		System.out.println();
+
+		for (BorrowRecord borrowRecord : borrowRecords) {
+			if (borrowRecord.getBook().getName().equals(bookName)
+					&& borrowRecord.getBookStore().getName().equals(storeName)) {
+				System.out.println("Book name is : " + borrowRecord.getBook().getName());
+				System.out.println("ISBN is : " + borrowRecord.getBook().getISBN());
+				System.out.println("Book store is : " + borrowRecord.getBookStore().getName());
+				System.out.println("borrow date is : " + borrowRecord.getBorrowDate());
+				if (borrowRecord.getReturnDate() == null) {
 					System.out.println("Book is not return");
-				}
-				else
-				System.out.println("Return date is "+borrowRecord.getReturnDate());
+				} else
+					System.out.println("Return date is " + borrowRecord.getReturnDate());
 				System.out.println("---------------------------------------");
-				}
-			
-			
 			}
-		
+
 		}
-	
-		
-		
-		
+
 	}
 
-
+}
