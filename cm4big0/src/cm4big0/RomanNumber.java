@@ -3,7 +3,11 @@ package cm4big0;
 public class RomanNumber {
 	public static void main(String[] args) {
 		String romanNumber = "MCMXCIV";
+		String romanNumber2 = "LIX";
+
 		System.out.println("Roman number in decimal is : " + romanToInt(romanNumber));
+		System.out.println("Roman number in decimal is : " + romanToInt(romanNumber2));
+
 		System.out.println("O(n)");
 
 	}
