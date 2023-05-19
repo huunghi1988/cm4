@@ -6,16 +6,16 @@ import java.util.Scanner;
 public class Factor {
 public static void main(String[] args) {
 
-		Scanner input = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Please input n: ");
-		int n = input.nextInt();
+		int n = sc.nextInt();
 		System.out.println("Please input k: ");
-		int k = input.nextInt();
+		int k = sc.nextInt();
 
-		System.out.println(kthFactor(n, k));
+		System.out.println(findkthfactor(n, k));
 	}
 
-	public static int kthFactor(int n, int k) {
+	public static int findkthfactor(int n, int k) {
 		List<Integer> list = new ArrayList<Integer>();
 		int count = 0;
 		for (int i = 1; i <= n; i++) {
