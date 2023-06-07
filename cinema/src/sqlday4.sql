@@ -41,6 +41,15 @@ END
 
 -- FOR DELETE
 CREATE DEFINER=`root`@`localhost` TRIGGER `booking_AFTER_DELETE` AFTER DELETE ON `booking` FOR EACH ROW BEGIN
+	DECLARE booking_exists INT DEFAULT 0;
+    -- Check if the customer has MANY booked for the same screening
+    SELECT COUNT(*) INTO booking_exists
+    FROM booking
+    WHERE customer_id = OLD.customer_id
+    AND screening_id = OLD.screening_id
+    AND id <> OLD.id;
+    
+    IF booking_exists = 0 THEN 
   UPDATE film
     SET total_booking_CUSTOMER = total_booking_CUSTOMER - 1
     WHERE id = (
@@ -48,4 +57,5 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `booking_AFTER_DELETE` AFTER DELETE ON
             FROM screening
             WHERE id = OLD.screening_id
         );
+        END IF;
 END
