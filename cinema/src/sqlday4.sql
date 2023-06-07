@@ -18,13 +18,15 @@ END
 -- QUESTION 2
 -- FOR INSERT
 CREATE DEFINER=`root`@`localhost` TRIGGER `booking_AFTER_INSERT` AFTER INSERT ON `booking` FOR EACH ROW BEGIN
-UPDATE film
-        SET total_booking_CUSTOMER = total_booking_CUSTOMER + 1
+
+UPDATE cinema_k4.film
+       SET total_booking_CUSTOMER = total_booking_CUSTOMER + 1
         WHERE  id = (
             SELECT film_id
             FROM screening
             WHERE id = NEW.screening_id
         );
+       
 END
 
 -- FOR DELETE
