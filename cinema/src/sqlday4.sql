@@ -20,12 +20,24 @@ END
 CREATE DEFINER=`root`@`localhost` TRIGGER `booking_AFTER_INSERT` AFTER INSERT ON `booking` FOR EACH ROW BEGIN
 UPDATE film
         SET total_booking_CUSTOMER = total_booking_CUSTOMER + 1
-        WHERE id = NEW.screening_id;
+        WHERE  id = (
+            SELECT film_id
+            FROM screening
+            WHERE id = NEW.screening_id
+        );
 END
 
 -- FOR DELETE
 CREATE DEFINER=`root`@`localhost` TRIGGER `booking_AFTER_DELETE` AFTER DELETE ON `booking` FOR EACH ROW BEGIN
 UPDATE film
         SET total_booking_CUSTOMER = total_booking_CUSTOMER - 1
-        WHERE id = OLD.screening_id;
+        WHERE id = (
+            SELECT film_id
+            FROM screening
+            WHERE id = (
+                SELECT screening_id
+                FROM booking
+                WHERE id = OLD.id
+            )
+        );
 END
