@@ -41,12 +41,11 @@ END
 
 -- FOR DELETE
 CREATE DEFINER=`root`@`localhost` TRIGGER `booking_AFTER_DELETE` AFTER DELETE ON `booking` FOR EACH ROW BEGIN
-UPDATE film
-        SET total_booking_CUSTOMER = total_booking_CUSTOMER - 1
-       WHERE id = (
-            SELECT screening.film_id
+  UPDATE film
+    SET total_booking_CUSTOMER = total_booking_CUSTOMER - 1
+    WHERE id = (
+            SELECT film_id
             FROM screening
-            JOIN booking ON screening.id = booking.screening_id
-            WHERE booking.id = OLD.id
+            WHERE id = OLD.screening_id
         );
 END
