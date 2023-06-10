@@ -15,3 +15,15 @@ limit 1))
 select id into room_id
 from temptable;
 END
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `findCustomer`(in roomid int)
+BEGIN
+select customer.first_name
+from customer join booking on booking.customer_id=customer.id
+join screening on booking.screening_id=screening.id
+where screening.room_id = roomid;
+
+
+
+
+END
