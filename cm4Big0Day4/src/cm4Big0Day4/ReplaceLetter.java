@@ -3,10 +3,10 @@ package cm4Big0Day4;
 public class ReplaceLetter {
 	public static void main(String[] args) {
 
-		String string = "baaaabbaabbbaa";
+		String string = "baaaabbaaabbbaa";
 		String string1 = "baaaabbaabbba";
 		String string2="baaaaa";
-		String string3 = "baabab";
+		String string3 = "baababbaaaabbaaabbbaabaaaabbaaabbbaabaaaabbaaabbbaabaaaabbaaabbbaabaaaabbaaabbbaabaaaabbaaabbbaabaaaabbaaabbbaabaaaabbaaabbbaabaaaabbaaabbbaabaaaabbaaabbbaabaaaabbaaabbbaabaaaabbaaabbbaa";
 		
 		replaceLetter(string);
 		replaceLetter(string1);

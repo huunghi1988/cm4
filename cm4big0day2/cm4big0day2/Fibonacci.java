@@ -4,26 +4,17 @@ import java.util.Scanner;
 
 public class Fibonacci {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Please input number: ");
-		System.out.println("Fibonacci is "+ findFibonacci(sc.nextInt()));
-		//O(N)
+		int [] arr= {1,4,5,7,8,22,23,44,57,58,104};
+		int index= searchNumber(44,arr);
+		System.out.println(index);
 		
 	}
-	public static int findFibonacci(int number)
-	{
-		int a=1;
-		int b=1;
-		int c;
-		if (number == 0) {
-	         return a;
-	      }
-	      for (int i = 2; i <= number; i++) {
-	         c = a + b;
-	         a = b;
-	         b = c;
-	      }
-	      return b;
+	public static int searchNumber(int number,int[] arr)
+	{int b=0;
+	for (int i=0;i<arr.length;i++)
+		if (number==arr[i])
+				return i;
+	return -1;
 	}
 
 }

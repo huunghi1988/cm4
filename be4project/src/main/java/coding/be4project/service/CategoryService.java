@@ -26,9 +26,9 @@ public class CategoryService {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				int id = rs.getInt("category_id");
-				String name = rs.getString("category_name");
-				category = new Category(id, name);
+				int category_id = rs.getInt("category_id");
+				String category_name = rs.getString("category_name");
+				category = new Category(category_id, category_name);
 				list.add(category);
 			}
 		} catch (Exception e) {
